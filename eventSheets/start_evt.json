@@ -2,6 +2,16 @@
 	"name": "start_evt",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "introMusicPlaying",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Track intro music state across layouts",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 902713654118742
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -27,20 +37,6 @@
 				{
 					"callFunction": "initVars",
 					"sid": 571146372359647
-				},
-				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 989465926171704,
-					"parameters": {
-						"audio-file": {
-							"path": "Crazy popping catz"
-						},
-						"loop": "not-looping",
-						"volume": "-10",
-						"stereo-pan": "0",
-						"tag-optional": "\"intro\""
-					}
 				},
 				{
 					"type": "script",
@@ -69,6 +65,52 @@
 				}
 			],
 			"sid": 829151100203871
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 814309227906431
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 765128390154283,
+					"parameters": {
+						"variable": "introMusicPlaying",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 174652093468120,
+					"parameters": {
+						"audio-file": {
+							"path": "Crazy popping catz"
+						},
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"intro\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 284650193762019,
+					"parameters": {
+						"variable": "introMusicPlaying",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 918036512347906
 		},
 		{
 			"eventType": "block",
@@ -106,6 +148,15 @@
 					"sid": 469773209688107,
 					"parameters": {
 						"tag": "\"intro\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 390712486512037,
+					"parameters": {
+						"variable": "introMusicPlaying",
+						"value": "0"
 					}
 				}
 			],
