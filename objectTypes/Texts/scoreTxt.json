@@ -1,0 +1,16 @@
+{
+	"name": "scoreTxt",
+	"plugin-id": "Text",
+	"sid": 516962097631769,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 922389200861774
+		}
+	],
+	"effectTypes": []
+}

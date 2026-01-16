@@ -1,0 +1,53 @@
+{
+	"name": "dave_evt",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 325528060013364
+				}
+			],
+			"actions": [
+				{
+					"id": "play-timeline",
+					"objectClass": "TimelineController",
+					"sid": 851832283317582,
+					"parameters": {
+						"timeline": "dave",
+						"tags": "\"\""
+					}
+				}
+			],
+			"sid": 124428083888422
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-time",
+					"objectClass": "System",
+					"sid": 994510094140467,
+					"parameters": {
+						"comparison": 0,
+						"time-seconds": "5.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 269219761713300,
+					"parameters": {
+						"layout": "start"
+					}
+				}
+			],
+			"sid": 225723250588076
+		}
+	],
+	"sid": 820367975524852
+}

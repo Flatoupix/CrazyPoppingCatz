@@ -1,0 +1,489 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 46602,
+	"name": "Crazy Popping Catz",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Arr",
+			"name": "Tableau",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Clavier",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Texte",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Saisie de texte",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Timeline",
+			"name": "Contrôleur de la timeline",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Toucher",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Ancre",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Glisser déposer",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "MoveTo",
+			"name": "Déplacer vers",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sinus",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "inverse",
+			"name": "Inverser",
+			"author": "Scirra",
+			"bundled": false
+		}
+	],
+	"uniqueId": "9yzlqo9ozsf",
+	"objectTypes": {
+		"items": [
+			"Audio",
+			"Touch",
+			"TimelineController",
+			"star",
+			"levelsModes",
+			"Sprite",
+			"button",
+			"sortModeCatz",
+			"Sprite2",
+			"pauseTxt",
+			"btnPauseTxt",
+			"LogoHeade",
+			"Keyboard",
+			"leaderboardBtn"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"background",
+					"bottomGraphs",
+					"Cloud",
+					"cloudUi",
+					"deco_background2",
+					"lifeGfx",
+					"Logo",
+					"LOGO3",
+					"results",
+					"btnPlayPause"
+				],
+				"subfolders": [],
+				"name": "Sprites"
+			},
+			{
+				"items": [
+					"catzPoppedTxt",
+					"lastScore",
+					"lifeTimeTxt",
+					"lvlTxt",
+					"modeTxt",
+					"resultsTxt",
+					"scoreTxt",
+					"totalPointsTxt",
+					"leaderBoardTxt",
+					"leaderboardMod",
+					"nicknameInpt",
+					"submitText",
+					"users_scores"
+				],
+				"subfolders": [],
+				"name": "Texts"
+			},
+			{
+				"items": [
+					"CatZ",
+					"CatZSort",
+					"CatZTarget"
+				],
+				"subfolders": [],
+				"name": "Game"
+			}
+		]
+	},
+	"functionsName": "Functions",
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"btn"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"stage",
+			"splash",
+			"start",
+			"end",
+			"leaderboard"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"stage_evt",
+			"start_evt",
+			"dave_evt",
+			"end_evt",
+			"toolsFunc",
+			"leaderboard_evt"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 818178346467059,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "maw1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 111380090726751,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 915618954851668,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 299361946854411,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw4.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 206416924069464,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw5.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 632927686616330,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw6.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 512473937928753,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw7.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 356489243740763,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw8.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 313940984246674,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw9.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 681069140535717,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw10.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 725970976799834,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw11.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 471807344427936,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "maw12.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 575078639133275,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "badMaw1.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 525789991755390,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "badMaw2.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 737225127740227,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "badMaw3.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 504074173676776,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Crazy popping catz.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 390287267682198,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Playing.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 349985301069199,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "Ronald.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 807942471502009,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Insanibc.ttf",
+					"type": "application/font-sfnt",
+					"sid": 183074105855146,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 765754123955827,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 924663958024910,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "Logo.png",
+					"type": "image/png",
+					"sid": 287182104189485,
+					"icon-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [
+			"dave",
+			"scaleUpDown"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Bounce"
+				],
+				"subfolders": []
+			}
+		]
+	},
+	"flowcharts": {
+		"items": [],
+		"subfolders": []
+	},
+	"properties": {
+		"description": "Plonge dans l'univers coloré et adorable de Crazy Popping Catz ! Éclate les chats kawaii qui tombent du ciel et accumule des points dans ce jeu d'arcade addictif. Utilise tes pouces pour toucher les chats et entre en mode Pop Frenzy pour des bonus incroyables. Avec des graphismes mignons, des sons amusants et une progression de difficulté, Crazy Popping Catz est le jeu parfait pour s'amuser et se détendre. Télécharge maintenant et commence à éclater !",
+		"version": "1.0.0.0",
+		"autoIncrementVersion": false,
+		"author": "FlatoupiX",
+		"authorEmail": "flatoupix@gmail.com",
+		"authorWebsite": "",
+		"appId": "com.game.dave",
+		"pixelRounding": false,
+		"zAxisScale": "normalized",
+		"fov": 0.7853981633974483,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"webgpu": "auto",
+		"multitexturing": "auto",
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "2d",
+		"anisotropicFiltering": "auto",
+		"zNear": 1,
+		"zFar": 10000,
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "progress-logo",
+		"preloadSounds": true,
+		"uidAllocationMode": "increment",
+		"cordovaiOSScheme": "app",
+		"cordovaAndroidScheme": "https",
+		"exportFileStructure": "folders",
+		"scriptsType": "module"
+	},
+	"viewportWidth": 720,
+	"viewportHeight": 1550,
+	"firstLayout": "splash"
+}

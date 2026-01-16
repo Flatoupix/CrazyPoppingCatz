@@ -1,0 +1,24 @@
+{
+	"name": "leaderboardMod",
+	"plugin-id": "Text",
+	"sid": 595935879260309,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [
+		{
+			"name": "mode",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 973361418938621
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 631967914301530
+		}
+	],
+	"effectTypes": []
+}

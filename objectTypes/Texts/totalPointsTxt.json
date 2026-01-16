@@ -1,0 +1,10 @@
+{
+	"name": "totalPointsTxt",
+	"plugin-id": "Text",
+	"sid": 713689506167415,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

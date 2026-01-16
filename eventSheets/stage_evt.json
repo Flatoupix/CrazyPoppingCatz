@@ -1,0 +1,2799 @@
+{
+	"name": "stage_evt",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "lvl",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 183832194532270
+		},
+		{
+			"eventType": "variable",
+			"name": "scoreStepUp",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "amount of points to level up",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 643352667813040
+		},
+		{
+			"eventType": "variable",
+			"name": "gameMode",
+			"type": "number",
+			"initialValue": "-1",
+			"comment": "Normal - 0, Sudden death - 1, Crazy Pop 2",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 171959747182690
+		},
+		{
+			"eventType": "variable",
+			"name": "lastScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "last score recorded",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 358532041315617
+		},
+		{
+			"eventType": "variable",
+			"name": "score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Glbal score",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 412358201881316
+		},
+		{
+			"eventType": "variable",
+			"name": "chaosNb",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 845905314479482
+		},
+		{
+			"eventType": "variable",
+			"name": "randomCatz",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 404669185931081
+		},
+		{
+			"eventType": "variable",
+			"name": "ScoreStepUpTarget",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 549590889613985
+		},
+		{
+			"eventType": "variable",
+			"name": "timer",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 702744716890045
+		},
+		{
+			"eventType": "variable",
+			"name": "scaleNb",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 268896468391797
+		},
+		{
+			"eventType": "variable",
+			"name": "catzsPopped",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 629368249538946
+		},
+		{
+			"eventType": "variable",
+			"name": "lifeNb",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "amount of life",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 555767300099846
+		},
+		{
+			"eventType": "variable",
+			"name": "spawnTimeLimit",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "Time before another catz can be create.",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 954830186739527
+		},
+		{
+			"eventType": "variable",
+			"name": "isPaused",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "is the game paused",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 539300856682351
+		},
+		{
+			"functionName": "CatzSortCreate",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 740947699068723,
+					"parameters": {
+						"object-to-create": "CatZSort",
+						"layer": "\"sort\"",
+						"x": "LayoutWidth/2",
+						"y": "645",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-animation-frame",
+					"objectClass": "CatZSort",
+					"sid": 415044297505116,
+					"parameters": {
+						"frame-number": "round(random(0,6))"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 380341415721145,
+					"parameters": {
+						"object-to-create": "lifeTimeTxt",
+						"layer": "\"sort\"",
+						"x": "0",
+						"y": "0",
+						"create-hierarchy": false,
+						"template-name": "\"\""
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "CatZSort",
+					"sid": 840803994014938,
+					"parameters": {
+						"instance-variable": "ChildUID",
+						"value": "lifeTimeTxt.UID"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "lifeTimeTxt",
+					"sid": 373572303196868,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 403509192063165
+		},
+		{
+			"functionName": "updateScore",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "scoreTxt",
+					"sid": 190463982398125,
+					"parameters": {
+						"text": "\"score \"&score"
+					}
+				}
+			],
+			"sid": 626018472815570
+		},
+		{
+			"functionName": "randomizeCatZColor",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "CatZ",
+					"sid": 175252783803684,
+					"parameters": {
+						"frame-number": "random(0,6)"
+					}
+				}
+			],
+			"sid": 870734583456361
+		},
+		{
+			"functionName": "updateLife",
+			"functionDescription": "Update life grafix",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-animation-frame",
+					"objectClass": "lifeGfx",
+					"sid": 312922119208436,
+					"parameters": {
+						"frame-number": "lifeNb"
+					}
+				}
+			],
+			"sid": 205894854418242
+		},
+		{
+			"functionName": "initVars",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionCopyPicked": false,
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 327872438637042,
+					"parameters": {
+						"variable": "lvl",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 655696086744594,
+					"parameters": {
+						"variable": "scoreStepUp",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 661721624614482,
+					"parameters": {
+						"variable": "score",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 870086986970485,
+					"parameters": {
+						"variable": "lifeNb",
+						"value": "3"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 996651127406894,
+					"parameters": {
+						"variable": "catzsPopped",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 173112042535217,
+					"parameters": {
+						"variable": "timer",
+						"value": "30"
+					}
+				},
+				{
+					"callFunction": "updateLife",
+					"sid": 491895678191764
+				},
+				{
+					"id": "set-layout-effect-enabled",
+					"objectClass": "System",
+					"sid": 360758562140079,
+					"parameters": {
+						"mode": "disable",
+						"effect": "\"Inverse\""
+					}
+				}
+			],
+			"sid": 890535694977216
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "leveling",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 605450413170185,
+							"parameters": {
+								"variable": "scoreStepUp",
+								"comparison": 0,
+								"value": "ScoreStepUpTarget"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 269440730093928,
+							"parameters": {
+								"variable": "lvl",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 714683713399494,
+							"parameters": {
+								"variable": "scoreStepUp",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 198282361370419
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 565392640210511,
+							"parameters": {
+								"variable": "lvl",
+								"comparison": 4,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 614315944019036,
+							"parameters": {
+								"variable": "gameMode",
+								"comparison": 1,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "lvlTxt",
+							"sid": 502249906513032,
+							"parameters": {
+								"text": "\"Level \"& lvl"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "lvlTxt",
+							"sid": 472215109326514,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 983588583082422
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 302175746846389,
+							"parameters": {
+								"variable": "score",
+								"comparison": 5,
+								"value": "lastScore"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 256552527912980,
+							"parameters": {
+								"variable": "lastScore",
+								"value": "score"
+							}
+						}
+					],
+					"sid": 122743253414406
+				}
+			],
+			"sid": 240493337354277
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Components set",
+			"description": "Setting of all components",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 866172203161551
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 303044623747263
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 658377436413073,
+							"parameters": {
+								"variable": "isPaused"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 457735320416199,
+							"parameters": {
+								"layer": "\"pause menu\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "stop-animation",
+							"objectClass": "btn",
+							"sid": 548552215781540
+						},
+						{
+							"id": "stop-animation",
+							"objectClass": "lifeGfx",
+							"sid": 457802763106793
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "levelsModes",
+							"sid": 581033171518209,
+							"parameters": {
+								"x": "0",
+								"value": "\"normal\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "levelsModes",
+							"sid": 826390036957679,
+							"parameters": {
+								"x": "1",
+								"value": "\"sudden death\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "levelsModes",
+							"sid": 732901155926821,
+							"parameters": {
+								"x": "2",
+								"value": "\"sorting frenzy\""
+							}
+						},
+						{
+							"id": "set-at-x",
+							"objectClass": "levelsModes",
+							"sid": 943503270298131,
+							"parameters": {
+								"x": "3",
+								"value": "\"target\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "modeTxt",
+							"sid": 688028949017497,
+							"parameters": {
+								"text": "levelsModes.At(gameMode)"
+							}
+						},
+						{
+							"id": "shuffle",
+							"objectClass": "sortModeCatz",
+							"sid": 468966348519855,
+							"parameters": {
+								"axis": "x"
+							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 176617080915931,
+							"parameters": {
+								"audio-file": {
+									"path": "Playing"
+								},
+								"loop": "not-looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"journey\""
+							}
+						}
+					],
+					"sid": 170018833103789,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "star",
+									"sid": 826589811499383,
+									"parameters": {
+										"unique-id": "11"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "star",
+									"sid": 756210636082180,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 577595065290124
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Cloud",
+									"sid": 822861880201215,
+									"parameters": {
+										"unique-id": "13"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "Cloud",
+									"sid": 867668867629952,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 421935586099503
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "CatZ",
+									"sid": 391577868178029,
+									"parameters": {
+										"unique-id": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop-animation",
+									"objectClass": "CatZ",
+									"sid": 610186909696992
+								}
+							],
+							"sid": 245570330966044,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 316564186835443,
+											"parameters": {
+												"variable": "gameMode",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "CatZ",
+											"sid": 142503352972497,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "set-active",
+											"objectClass": "CatZ",
+											"sid": 554410931040885,
+											"behaviorType": "SineSD",
+											"parameters": {
+												"state": "active"
+											}
+										}
+									],
+									"sid": 933353231240742
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 870156986168007,
+											"parameters": {
+												"variable": "gameMode",
+												"comparison": 1,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "CatZ",
+											"sid": 637984103814270,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "active"
+											}
+										}
+									],
+									"sid": 646002093014626
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "CatZTarget",
+									"sid": 727323466863969,
+									"parameters": {
+										"unique-id": "24"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation-frame",
+									"objectClass": "CatZTarget",
+									"sid": 925875591168479,
+									"parameters": {
+										"frame-number": "round(random(0,6))"
+									}
+								}
+							],
+							"sid": 206514794361467
+						}
+					]
+				}
+			],
+			"sid": 682361543346058
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spawn mechanics",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CatZTarget",
+							"sid": 649263868923255
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "CatZTarget",
+							"sid": 470700228449191
+						}
+					],
+					"sid": 494287882161601
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CatZ",
+							"sid": 696435148041926
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "CatZ",
+							"sid": 326540013901544
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CatZ",
+							"sid": 404461919243258,
+							"parameters": {
+								"instance-variable": "rotateStep",
+								"value": "random(-5,5)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CatZ",
+							"sid": 509062833420577,
+							"parameters": {
+								"instance-variable": "distanceStep",
+								"value": "random(4,8)"
+							}
+						}
+					],
+					"sid": 298528530533830
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 360609483418835
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 150391309020649,
+							"parameters": {
+								"variable": "isPaused"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 530606091271556,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 331199159464598,
+									"parameters": {
+										"variable": "spawnTimeLimit",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 240701564633173,
+									"parameters": {
+										"variable": "spawnTimeLimit",
+										"value": "-1"
+									}
+								}
+							],
+							"sid": 914558216298361
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "CatZ",
+									"sid": 150195241285692,
+									"parameters": {
+										"unique-id": "3"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "move-at-angle",
+									"objectClass": "CatZ",
+									"sid": 728929347190169,
+									"parameters": {
+										"angle": "90",
+										"distance": "CatZ.distanceStep + lvl"
+									}
+								},
+								{
+									"id": "rotate-clockwise",
+									"objectClass": "CatZ",
+									"sid": 579591960029171,
+									"parameters": {
+										"degrees": "CatZ.rotateStep"
+									}
+								}
+							],
+							"sid": 201486563592085
+						}
+					]
+				}
+			],
+			"sid": 317949374902198
+		},
+		{
+			"eventType": "comment",
+			"text": "NORMAL"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 434710317592466,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 0,
+						"value": "0"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 771076691026433,
+					"parameters": {
+						"variable": "isPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 499202500026801,
+					"parameters": {
+						"layer": "\"game\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 331011570830865,
+					"parameters": {
+						"layer": "\"target\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 221017802117020,
+					"parameters": {
+						"layer": "\"sort\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "CatZSort",
+					"sid": 795477278152739
+				},
+				{
+					"id": "destroy",
+					"objectClass": "CatZTarget",
+					"sid": 136975682391775
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 298611192840723,
+					"parameters": {
+						"variable": "ScoreStepUpTarget",
+						"value": "10"
+					}
+				}
+			],
+			"sid": 813810091630947,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "SPAWN MECHANICS"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 481177560010833,
+							"parameters": {
+								"interval-seconds": "random(0.5,2-lvl)"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 926594276667493,
+							"parameters": {
+								"variable": "spawnTimeLimit",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CatZ",
+							"sid": 460569409480581,
+							"parameters": {
+								"unique-id": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 887066459906805,
+							"parameters": {
+								"object-to-create": "CatZ",
+								"layer": "\"game\"",
+								"x": "CatZ.X",
+								"y": "CatZ.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CatZ",
+							"sid": 337743421364998,
+							"parameters": {
+								"frame-number": "round(random(0,6))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 432540888553399,
+							"parameters": {
+								"variable": "spawnTimeLimit",
+								"value": "20"
+							}
+						}
+					],
+					"sid": 140456089111719
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "CatZ",
+							"sid": 664781280073519
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "CatZ",
+							"sid": 537167917438482,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 190258983516669
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 999335185523935,
+							"parameters": {
+								"variable": "lifeNb",
+								"value": "-1"
+							}
+						},
+						{
+							"callFunction": "updateLife",
+							"sid": 703426798505390
+						}
+					],
+					"sid": 234439868836219
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 704112262145631,
+							"parameters": {
+								"object": "CatZ"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 895945316437143
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 625517988618648,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"maw\"&str(int(random(1, 13)))",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 806550238913865,
+							"parameters": {
+								"variable": "score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 465279063051446,
+							"parameters": {
+								"variable": "catzsPopped",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 713833316139788,
+							"parameters": {
+								"variable": "scoreStepUp",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "updateScore",
+							"sid": 364071494275543
+						}
+					],
+					"sid": 310884992750653
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "SUDDEN DEATH"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 727597308759737,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 748206229289021,
+					"parameters": {
+						"variable": "isPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 175356735443562,
+					"parameters": {
+						"layer": "\"game\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 210615060640313,
+					"parameters": {
+						"layer": "\"target\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 252554905261794,
+					"parameters": {
+						"layer": "\"sort\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "lvlTxt",
+					"sid": 180584977430633,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 833644143160690,
+					"parameters": {
+						"variable": "ScoreStepUpTarget",
+						"value": "5"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 140035610856465,
+					"parameters": {
+						"variable": "lifeNb",
+						"value": "1"
+					}
+				},
+				{
+					"callFunction": "updateLife",
+					"sid": 672964880277843
+				}
+			],
+			"sid": 966528698895588,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "SPAWN MECHANICS"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 692486442093677,
+							"parameters": {
+								"interval-seconds": "random(0,2-lvl/2)"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CatZ",
+							"sid": 811297725811166,
+							"parameters": {
+								"unique-id": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 238475664187250,
+							"parameters": {
+								"object-to-create": "CatZ",
+								"layer": "\"game\"",
+								"x": "CatZ.X",
+								"y": "CatZ.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CatZ",
+							"sid": 803728036596752,
+							"parameters": {
+								"frame-number": "round(random(0,6))"
+							}
+						}
+					],
+					"sid": 483248609710801
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "CatZ",
+							"sid": 139829607329505
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "CatZ",
+							"sid": 406375055087538,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 285367920265674
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 445995383396605,
+							"parameters": {
+								"variable": "lifeNb",
+								"value": "-1"
+							}
+						},
+						{
+							"callFunction": "updateLife",
+							"sid": 979283648577644
+						}
+					],
+					"sid": 939564698105046
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 229272050822051,
+							"parameters": {
+								"object": "CatZ"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 542084038656202
+						},
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 268177448662522,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"maw\"&str(int(random(1, 13)))",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 991187155825308,
+							"parameters": {
+								"variable": "score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 262171363534662,
+							"parameters": {
+								"variable": "catzsPopped",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 148240565741161,
+							"parameters": {
+								"variable": "scoreStepUp",
+								"value": "1"
+							}
+						},
+						{
+							"callFunction": "updateScore",
+							"sid": 366110685417356
+						}
+					],
+					"sid": 779502304108122
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 544849949860788,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 909006114926639,
+					"parameters": {
+						"variable": "lvl",
+						"comparison": 0,
+						"value": "5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-effect-enabled",
+					"objectClass": "System",
+					"sid": 977547439848817,
+					"parameters": {
+						"mode": "enable",
+						"effect": "\"Inverse\""
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 442136996306830
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 964837968285491,
+					"parameters": {
+						"audio-file": {
+							"path": "Ronald"
+						},
+						"loop": "not-looping",
+						"volume": "0",
+						"stereo-pan": "0",
+						"tag-optional": "\"Ronald\""
+					}
+				}
+			],
+			"sid": 930089697606996
+		},
+		{
+			"eventType": "comment",
+			"text": "SORTING FRENZY"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 533473217417025,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 0,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 143755896586749,
+					"parameters": {
+						"variable": "isPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 120508233228530,
+					"parameters": {
+						"layer": "\"game\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 533312579223424,
+					"parameters": {
+						"layer": "\"target\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 681750772995532,
+					"parameters": {
+						"layer": "\"sort\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "CatZ",
+					"sid": 120696643932270
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "lvlTxt",
+					"sid": 592191350816479,
+					"parameters": {
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "CatZSort",
+					"sid": 519204121431047,
+					"behaviorType": "SineH",
+					"parameters": {
+						"state": "active"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "CatZSort",
+					"sid": 669047259446230,
+					"behaviorType": "SineV",
+					"parameters": {
+						"state": "active"
+					}
+				}
+			],
+			"sid": 187881967364890,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "CatZTarget",
+							"sid": 682300849718244,
+							"parameters": {
+								"instance-variable": "scale",
+								"comparison": 4,
+								"value": "1"
+							}
+						},
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 226034849710614
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CatZTarget",
+							"sid": 296774815439346,
+							"parameters": {
+								"instance-variable": "scale",
+								"value": "-0.01"
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "CatZTarget",
+							"sid": 770848101442583,
+							"parameters": {
+								"scale": "CatZTarget.scale"
+							}
+						}
+					],
+					"sid": 109611899384477
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 221114096340808,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 588236192694169,
+							"parameters": {
+								"variable": "timer",
+								"value": "-1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "lvlTxt",
+							"sid": 956341944381817,
+							"parameters": {
+								"text": "timer"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 324762343925066,
+							"parameters": {
+								"object-to-create": "CatZSort",
+								"layer": "\"sort\"",
+								"x": "LayoutWidth/2",
+								"y": "645",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						}
+					],
+					"sid": 498682602806665
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 418562496091183,
+							"parameters": {
+								"variable": "timer",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 331079474288034,
+							"parameters": {
+								"layout": "end"
+							}
+						}
+					],
+					"sid": 480490008290321
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 597825709728001
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-instvar",
+							"objectClass": "CatZSort",
+							"sid": 962903981176254,
+							"parameters": {
+								"instance-variable": "lifetime",
+								"value": "-0.05"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "lifeTimeTxt",
+							"sid": 501716137006724,
+							"parameters": {
+								"text": "round(CatZSort.lifetime)"
+							}
+						},
+						{
+							"id": "set-position",
+							"objectClass": "lifeTimeTxt",
+							"sid": 552767828838733,
+							"parameters": {
+								"x": "CatZSort.X",
+								"y": "CatZSort.Y + CatZSort.Height/2 + 25"
+							}
+						}
+					],
+					"sid": 313762867560762
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CatZTarget",
+							"sid": 263449589437493,
+							"parameters": {
+								"unique-id": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZTarget",
+							"sid": 232997816285459
+						}
+					],
+					"sid": 213746205127604
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "CatZSort",
+							"sid": 324914459979927
+						}
+					],
+					"actions": [
+						{
+							"id": "stop-animation",
+							"objectClass": "CatZSort",
+							"sid": 494290992730351
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CatZSort",
+							"sid": 375227767941174,
+							"parameters": {
+								"frame-number": "round(random(0,6))"
+							}
+						},
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 403048876865602,
+							"parameters": {
+								"object-to-create": "lifeTimeTxt",
+								"layer": "\"sort\"",
+								"x": "CatZSort.X",
+								"y": "CatZSort.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "CatZSort",
+							"sid": 455792131724888,
+							"parameters": {
+								"instance-variable": "ChildUID",
+								"value": "lifeTimeTxt.UID"
+							}
+						}
+					],
+					"sid": 114438383735138
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-animation-frame",
+							"objectClass": "CatZSort",
+							"sid": 312924004420902,
+							"parameters": {
+								"comparison": 0,
+								"number": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CatZSort",
+							"sid": 988913728729259,
+							"parameters": {
+								"frame-number": "round(random(0,6))"
+							}
+						}
+					],
+					"sid": 902992633522482
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "CatZSort",
+							"sid": 225166673162784,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-active",
+							"objectClass": "CatZSort",
+							"sid": 592233456977989,
+							"behaviorType": "SineH",
+							"parameters": {
+								"state": "inactive"
+							}
+						},
+						{
+							"id": "set-active",
+							"objectClass": "CatZSort",
+							"sid": 891005301239941,
+							"behaviorType": "SineV",
+							"parameters": {
+								"state": "inactive"
+							}
+						}
+					],
+					"sid": 265487538888275,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "CatZSort",
+									"sid": 809095203071917,
+									"parameters": {
+										"object": "CatZTarget"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "CatZSort",
+									"sid": 475478744331718,
+									"parameters": {
+										"comparison": 0,
+										"number": "CatZTarget.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "CatZSort",
+									"sid": 634396522213589
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "CatZTarget",
+									"sid": 308505878182833,
+									"parameters": {
+										"instance-variable": "scale",
+										"value": "1.5"
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "CatZTarget",
+									"sid": 700125946477821,
+									"parameters": {
+										"scale": "CatZTarget.scale"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 465244785755919,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"maw\"&str(int(random(1, 13)))",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 925664275969542,
+									"parameters": {
+										"variable": "score",
+										"value": "round(CatZSort.lifetime)"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 704874418833628,
+									"parameters": {
+										"variable": "catzsPopped",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "updateScore",
+									"sid": 525017468459095
+								}
+							],
+							"sid": 341281572256412,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "lifeTimeTxt",
+											"sid": 463119803787375,
+											"parameters": {
+												"unique-id": "CatZSort.ChildUID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "lifeTimeTxt",
+											"sid": 904617833185271
+										}
+									],
+									"sid": 711137715409185
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "CatZSort",
+									"sid": 864999988565153,
+									"parameters": {
+										"object": "CatZTarget"
+									}
+								},
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "CatZSort",
+									"sid": 206805187648558,
+									"parameters": {
+										"comparison": 1,
+										"number": "CatZTarget.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "CatZSort",
+									"sid": 829936912131702
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 445548985242480,
+									"parameters": {
+										"variable": "catzsPopped",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 176130631491755,
+									"parameters": {
+										"variable": "score",
+										"value": "-round(CatZSort.lifetime)"
+									}
+								},
+								{
+									"id": "play-by-name",
+									"objectClass": "Audio",
+									"sid": 258574732571032,
+									"parameters": {
+										"folder": "sounds",
+										"audio-file-name": "\"badMaw\"&str(int(random(1, 3)))",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 575187313354889,
+									"parameters": {
+										"variable": "lifeNb",
+										"value": "-1"
+									}
+								},
+								{
+									"callFunction": "updateLife",
+									"sid": 837593705113191
+								}
+							],
+							"sid": 908681707002088
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "TARGET"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 319605460583645,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 0,
+						"value": "3"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 178828873762003,
+					"parameters": {
+						"variable": "isPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 929970142621520,
+					"parameters": {
+						"layer": "\"game\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 704865421071683,
+					"parameters": {
+						"layer": "\"target\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 298163035038723,
+					"parameters": {
+						"layer": "\"sort\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "CatZSort",
+					"sid": 917709150344577
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 549061002156495,
+					"parameters": {
+						"variable": "ScoreStepUpTarget",
+						"value": "3"
+					}
+				}
+			],
+			"sid": 631063236306330,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CatZTarget",
+							"sid": 601785148942029,
+							"parameters": {
+								"unique-id": "24"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZTarget",
+							"sid": 138050315577950
+						}
+					],
+					"sid": 305683613634822
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 248795305211880,
+							"parameters": {
+								"interval-seconds": "random(0.5,2-lvl)"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 266192907700717,
+							"parameters": {
+								"variable": "spawnTimeLimit",
+								"comparison": 0,
+								"value": "0"
+							}
+						},
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "CatZ",
+							"sid": 452513456562431,
+							"parameters": {
+								"unique-id": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 250627685577292,
+							"parameters": {
+								"object-to-create": "CatZ",
+								"layer": "\"game\"",
+								"x": "CatZ.X",
+								"y": "CatZ.Y",
+								"create-hierarchy": false,
+								"template-name": "\"\""
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "CatZ",
+							"sid": 253037596599918,
+							"parameters": {
+								"frame-number": "round(random(0,6))"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 625886667618869,
+							"parameters": {
+								"variable": "spawnTimeLimit",
+								"value": "20"
+							}
+						}
+					],
+					"sid": 804329013772060
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "CatZ",
+							"sid": 567522779147635
+						},
+						{
+							"id": "compare-y",
+							"objectClass": "CatZ",
+							"sid": 737395637928391,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "50"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 506513324279939
+						}
+					],
+					"sid": 617330259441324,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "CatZ",
+									"sid": 574638273417896,
+									"parameters": {
+										"comparison": 0,
+										"number": "CatZTarget.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 128452023851446,
+									"parameters": {
+										"variable": "lifeNb",
+										"value": "-1"
+									}
+								},
+								{
+									"callFunction": "updateLife",
+									"sid": 247971932983183
+								}
+							],
+							"sid": 246941466169721
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 283673157599560,
+							"parameters": {
+								"object": "CatZ"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play-by-name",
+							"objectClass": "Audio",
+							"sid": 627671667768100,
+							"parameters": {
+								"folder": "sounds",
+								"audio-file-name": "\"maw\"&str(int(random(1, 13)))",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "CatZ",
+							"sid": 208259298741031
+						}
+					],
+					"sid": 143007109829259,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "CatZ",
+									"sid": 428869572296184,
+									"parameters": {
+										"comparison": 1,
+										"number": "CatZTarget.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 147380514654486,
+									"parameters": {
+										"variable": "lifeNb",
+										"value": "-1"
+									}
+								},
+								{
+									"callFunction": "updateLife",
+									"sid": 860688755916532
+								}
+							],
+							"sid": 870047397860630
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-animation-frame",
+									"objectClass": "CatZ",
+									"sid": 887138745871856,
+									"parameters": {
+										"comparison": 0,
+										"number": "CatZTarget.AnimationFrame"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 872315041955744,
+									"parameters": {
+										"variable": "score",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 980582521685153,
+									"parameters": {
+										"variable": "catzsPopped",
+										"value": "1"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 227174194051037,
+									"parameters": {
+										"variable": "scoreStepUp",
+										"value": "1"
+									}
+								},
+								{
+									"callFunction": "updateScore",
+									"sid": 334561667464176
+								},
+								{
+									"id": "set-animation-frame",
+									"objectClass": "CatZTarget",
+									"sid": 616471518290696,
+									"parameters": {
+										"frame-number": "round(random(0,6))"
+									}
+								}
+							],
+							"sid": 454159496152352
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 594129084483485,
+					"parameters": {
+						"variable": "gameMode",
+						"comparison": 1,
+						"value": "2"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 790826192201906,
+					"parameters": {
+						"variable": "isPaused"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 556332200171189,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "background_generation",
+					"description": "logic to create random background element",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 138551888558585,
+									"parameters": {
+										"interval-seconds": "random(0.5,1)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 386168429753293,
+									"parameters": {
+										"object-to-create": "Cloud",
+										"layer": "\"background\"",
+										"x": "Cloud.X",
+										"y": "Cloud.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "Cloud",
+									"sid": 373239662289631,
+									"parameters": {
+										"scale": "random(0.5,1)"
+									}
+								},
+								{
+									"id": "move-to-top",
+									"objectClass": "Cloud",
+									"sid": 958255326996019
+								}
+							],
+							"sid": 623577322687133
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 208175316190555,
+									"parameters": {
+										"interval-seconds": "random(0.1,0.2)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 983007047183962,
+									"parameters": {
+										"object-to-create": "star",
+										"layer": "\"background\"",
+										"x": "star.X",
+										"y": "star.Y",
+										"create-hierarchy": false,
+										"template-name": "\"\""
+									}
+								},
+								{
+									"id": "set-scale",
+									"objectClass": "star",
+									"sid": 106609230572925,
+									"parameters": {
+										"scale": "random(0.8,1.2)"
+									}
+								},
+								{
+									"id": "move-to-object",
+									"objectClass": "star",
+									"sid": 360898977385593,
+									"parameters": {
+										"where": "behind",
+										"object": "Cloud"
+									}
+								}
+							],
+							"sid": 545824022189197
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 972453031359875
+								}
+							],
+							"actions": [],
+							"sid": 193161909829634,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "star",
+											"sid": 781661286740645,
+											"parameters": {
+												"unique-id": "11"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "move-at-angle",
+											"objectClass": "star",
+											"sid": 460255816825325,
+											"parameters": {
+												"angle": "-90",
+												"distance": "5"
+											}
+										}
+									],
+									"sid": 752384112098281
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Cloud",
+											"sid": 436948789291108,
+											"parameters": {
+												"unique-id": "13"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "move-at-angle",
+											"objectClass": "Cloud",
+											"sid": 244316825526148,
+											"parameters": {
+												"angle": "-90",
+												"distance": "5"
+											}
+										}
+									],
+									"sid": 749084290914437
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-outside-layout",
+											"objectClass": "Cloud",
+											"sid": 822969980307971
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "Cloud",
+											"sid": 146856924873069,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "LayoutHeight-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Cloud",
+											"sid": 855532247151494
+										}
+									],
+									"sid": 466275315153968
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-outside-layout",
+											"objectClass": "star",
+											"sid": 243438329006199
+										},
+										{
+											"id": "compare-y",
+											"objectClass": "star",
+											"sid": 808775799942377,
+											"parameters": {
+												"comparison": 2,
+												"y-co-ordinate": "LayoutHeight-50"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "star",
+											"sid": 755065130181597
+										}
+									],
+									"sid": 397430089849651
+								}
+							]
+						}
+					],
+					"sid": 948357090399105
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "lifeGfx",
+					"sid": 397883996215044,
+					"parameters": {
+						"comparison": 0,
+						"number": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 886320173897696,
+					"parameters": {
+						"layout": "end"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 572941662479797
+				}
+			],
+			"sid": 142025326013885
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 393287982138351,
+					"parameters": {
+						"object": "btnPlayPause"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 861541224666080,
+					"parameters": {
+						"layer": "\"pause menu\""
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 620401741681478,
+					"parameters": {
+						"variable": "isPaused"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "CatZSort",
+					"sid": 914400683032544,
+					"behaviorType": "SineH",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-active",
+					"objectClass": "CatZSort",
+					"sid": 395891536027492,
+					"behaviorType": "SineV",
+					"parameters": {
+						"state": "inactive"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 935397480431796,
+					"parameters": {
+						"layer": "\"pause menu\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 501597207738278
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 905187538122197,
+					"parameters": {
+						"object": "button"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 975898634346972,
+					"parameters": {
+						"layer": "\"pause menu\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "button",
+					"sid": 120606384361307,
+					"parameters": {
+						"comparison": 0,
+						"number": "4"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 683143738017498,
+					"parameters": {
+						"variable": "isPaused"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 776375149593533,
+					"parameters": {
+						"layer": "\"pause menu\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 914626956009753
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 340234539173851,
+					"parameters": {
+						"object": "button"
+					}
+				},
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 103599877481066,
+					"parameters": {
+						"layer": "\"pause menu\""
+					}
+				},
+				{
+					"id": "compare-animation-frame",
+					"objectClass": "button",
+					"sid": 433925707071076,
+					"parameters": {
+						"comparison": 0,
+						"number": "5"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "toggle-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 290634019493564,
+					"parameters": {
+						"variable": "isPaused"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 670061077863903,
+					"parameters": {
+						"layer": "\"pause menu\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 888309281204753,
+					"parameters": {
+						"layout": "start"
+					}
+				},
+				{
+					"id": "stop-all",
+					"objectClass": "Audio",
+					"sid": 995090021913987
+				}
+			],
+			"sid": 540414664205978
+		}
+	],
+	"sid": 697597479388901
+}

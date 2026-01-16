@@ -1,0 +1,289 @@
+{
+	"name": "leaderboard_evt",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "nickname",
+			"type": "string",
+			"initialValue": "\"\"",
+			"comment": "Nickname of the player",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 818320673779090
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 770880636730892
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 820819422950467,
+					"parameters": {
+						"layer": "\"leaderboard\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"const usersScoresInstance =  runtime.objects.users_scores.getFirstInstance()",
+						"",
+						"if (usersScoresInstance) {",
+						"   usersScoresInstance.text = window.leaderboard.getScoresFromLocalStorage(0) ",
+						"",
+						"}",
+						""
+					]
+				}
+			],
+			"sid": 831037580670931,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 186477799584629,
+							"parameters": {
+								"variable": "gameMode",
+								"comparison": 0,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 212381315013777,
+							"parameters": {
+								"layer": "\"leaderboard_list\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 688678963902586,
+							"parameters": {
+								"layer": "\"leaderboard_input\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 249751780762856
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 374204465602784
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 776170548504912,
+							"parameters": {
+								"layer": "\"leaderboard_list\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 524616383722721,
+							"parameters": {
+								"layer": "\"leaderboard_input\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 748567475975168
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 516133320435374
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "button",
+					"sid": 543342998212677
+				}
+			],
+			"actions": [
+				{
+					"id": "stop-animation",
+					"objectClass": "button",
+					"sid": 352719342953836
+				}
+			],
+			"sid": 805449974379789
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 269091004670461,
+					"parameters": {
+						"object": "submitText"
+					}
+				},
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 964112805928331,
+					"parameters": {
+						"object": "button"
+					}
+				},
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 427480443135807,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 239428422451378,
+					"parameters": {
+						"variable": "nickname",
+						"value": "nicknameInpt.Text"
+					}
+				},
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"window.leaderboard.submitScore(runtime.globalVars.score,runtime.globalVars.nickname,runtime.globalVars.gameMode)",
+						""
+					]
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 702972202846813,
+					"parameters": {
+						"layer": "\"leaderboard_list\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 865320760902270,
+					"parameters": {
+						"layer": "\"leaderboard_input\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 824254973504888,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 831628520005823,
+					"parameters": {
+						"object": "leaderboardMod"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"",
+						"const leaderboardModeinstance = runtime.objects.leaderboardMod.getFirstPickedInstance()",
+						"",
+						"const usersScoresInstance =  runtime.objects.users_scores.getFirstInstance()",
+						"",
+						"if (leaderboardModeinstance && usersScoresInstance) {",
+						"   usersScoresInstance.text = window.leaderboard.getScoresFromLocalStorage(leaderboardModeinstance.instVars.mode) ",
+						"",
+						"}",
+						"",
+						"",
+						""
+					]
+				}
+			],
+			"sid": 927666575760240
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 770384623927418,
+					"parameters": {
+						"object": "leaderboardMod"
+					}
+				},
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "leaderboardMod",
+					"sid": 903463984344359,
+					"parameters": {
+						"instance-variable": "mode",
+						"comparison": 0,
+						"value": "-1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 497184427295171,
+					"parameters": {
+						"layout": "start"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 410748653089807,
+					"parameters": {
+						"layer": "\"leaderboard\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 682610656585955
+		}
+	],
+	"sid": 249010360761534
+}

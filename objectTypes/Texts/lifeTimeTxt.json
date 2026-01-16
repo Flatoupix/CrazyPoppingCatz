@@ -1,0 +1,10 @@
+{
+	"name": "lifeTimeTxt",
+	"plugin-id": "Text",
+	"sid": 667903435644344,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

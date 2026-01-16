@@ -1,0 +1,10 @@
+{
+	"name": "submitText",
+	"plugin-id": "Text",
+	"sid": 659418659719314,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

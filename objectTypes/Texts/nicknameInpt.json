@@ -1,0 +1,9 @@
+{
+	"name": "nicknameInpt",
+	"plugin-id": "TextBox",
+	"sid": 458196041070152,
+	"isGlobal": false,
+	"editorNewInstanceIsReplica": true,
+	"instanceVariables": [],
+	"behaviorTypes": []
+}

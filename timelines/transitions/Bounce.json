@@ -1,0 +1,29 @@
+{
+	"name": "Bounce",
+	"linear": false,
+	"purpose": "any",
+	"transitionKeyframes": [
+		{
+			"x": 0,
+			"y": 0,
+			"sax": 0.093,
+			"say": 1.258,
+			"eax": 0,
+			"eay": 0,
+			"se": true,
+			"ee": false,
+			"sm": "cubic"
+		},
+		{
+			"x": 1,
+			"y": 1,
+			"sax": 0,
+			"say": 0,
+			"eax": -0.442,
+			"eay": 0.558,
+			"se": false,
+			"ee": true,
+			"sm": "cubic"
+		}
+	]
+}

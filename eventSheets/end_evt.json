@@ -1,0 +1,56 @@
+{
+	"name": "end_evt",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 583407237316041
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "catzPoppedTxt",
+					"sid": 271176177447796,
+					"parameters": {
+						"text": "\"Catz popped \"&catzsPopped"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "totalPointsTxt",
+					"sid": 337831516131670,
+					"parameters": {
+						"text": "\"Total points \"&score"
+					}
+				}
+			],
+			"sid": 549072536046918
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap",
+					"objectClass": "Touch",
+					"sid": 330115041018309
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 963264020807460,
+					"parameters": {
+						"layout": "leaderboard"
+					}
+				}
+			],
+			"sid": 929269071830329
+		}
+	],
+	"sid": 555358824010829
+}

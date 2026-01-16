@@ -1,0 +1,165 @@
+{
+	"name": "start_evt",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 380281248484560
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "lastScore",
+					"sid": 257973683184559,
+					"parameters": {
+						"text": "\"Choupette \"&lastScore"
+					}
+				},
+				{
+					"id": "stop-animation",
+					"objectClass": "btn",
+					"sid": 303206936147289
+				},
+				{
+					"callFunction": "initVars",
+					"sid": 571146372359647
+				},
+				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 989465926171704,
+					"parameters": {
+						"audio-file": {
+							"path": "Crazy popping catz"
+						},
+						"loop": "not-looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"intro\""
+					}
+				},
+				{
+					"type": "script",
+					"language": "javascript",
+					"script": [
+						"window.leaderboard.getScoresAndStore()"
+					]
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 491233244282972,
+					"parameters": {
+						"layer": "\"leaderboard\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 841831661142945,
+					"parameters": {
+						"variable": "gameMode",
+						"value": "-1"
+					}
+				}
+			],
+			"sid": 829151100203871
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 800683374126059,
+					"parameters": {
+						"object": "btn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 333942417993125,
+					"parameters": {
+						"variable": "gameMode",
+						"value": "btn.AnimationFrame"
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 258937628071653,
+					"parameters": {
+						"layout": "stage"
+					}
+				},
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 469773209688107,
+					"parameters": {
+						"tag": "\"intro\""
+					}
+				}
+			],
+			"sid": 507454533155480
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 683513109528438,
+					"parameters": {
+						"object": "leaderboardBtn"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 167600810092975,
+					"parameters": {
+						"layout": "leaderboard"
+					}
+				}
+			],
+			"sid": 578822837908034
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "repeat",
+					"objectClass": "System",
+					"sid": 599453750179411,
+					"parameters": {
+						"count": "6"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-at-x",
+					"objectClass": "sortModeCatz",
+					"sid": 669243624780209,
+					"parameters": {
+						"x": "loopindex",
+						"value": "loopindex"
+					}
+				}
+			],
+			"sid": 389962674714330
+		}
+	],
+	"sid": 518802549987093
+}
