@@ -3,7 +3,7 @@
 	"savedWithRelease": 46602,
 	"name": "Crazy Popping Catz",
 	"runtime": "c3",
-	"useWorker": "auto",
+	"useWorker": "no",
 	"bundleAddons": false,
 	"usedAddons": [
 		{

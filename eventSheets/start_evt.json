@@ -42,8 +42,9 @@
 					"type": "script",
 					"language": "javascript",
 					"script": [
-						"if (window.leaderboard && window.leaderboard.getScoresAndStore) {",
-						"  window.leaderboard.getScoresAndStore()",
+						"const leaderboard = typeof globalThis !== \"undefined\" ? globalThis.leaderboard : window.leaderboard",
+						"if (leaderboard && leaderboard.getScoresAndStore) {",
+						"  leaderboard.getScoresAndStore()",
 						"}"
 					]
 				},
