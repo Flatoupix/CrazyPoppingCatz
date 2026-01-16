@@ -42,7 +42,9 @@
 					"type": "script",
 					"language": "javascript",
 					"script": [
-						"window.leaderboard.getScoresAndStore()"
+						"if (window.leaderboard && window.leaderboard.getScoresAndStore) {",
+						"  window.leaderboard.getScoresAndStore()",
+						"}"
 					]
 				},
 				{
